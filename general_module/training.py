@@ -48,13 +48,12 @@ class CustomModel:
             self.ra = ra
 
     def refresh(self, network, epochs, ba, ra):
-        assert epochs is not None, "@epochs cannot be None"
-        assert ba is not None, "@ba cannot be None"
-        assert ra is not None, "@ra cannot be None"
-        assert network is not None, "@model cannot be None"
-
         self.network = network
         self.epoch = epochs
+        self.ba = ba
+        self.ra = ra
+    
+    def override(self, ba, ra):
         self.ba = ba
         self.ra = ra
 
@@ -69,6 +68,24 @@ def print_results(models):
         info.loc[len(info)] = [model_key, models[model_key].epoch, models[model_key].ba, models[model_key].ra]
     # display info in iteractive table
     display(info)
+
+
+class Checkpoint():
+
+    def __init__(self):
+        self.count=0
+        self.model_state=[]
+        pass
+
+    def add(self, model_state, optimizer_state):
+        self.model_state.append(model_state)
+        self.count +=1
+
+    def get(self, epoch):
+        return self.model_state[epoch-1]
+    
+    def length(self):
+        return self.count+1
 
 # dummy data to test print_models
 # models = {"O":CustomModel(None), "C":CustomModel(None), "E":CustomModel(None), "A":CustomModel(None), "N":CustomModel(None)}

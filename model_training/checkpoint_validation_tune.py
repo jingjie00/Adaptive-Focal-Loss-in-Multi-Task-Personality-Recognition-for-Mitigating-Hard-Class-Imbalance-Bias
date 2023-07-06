@@ -71,6 +71,8 @@ class CustomNetwork(nn.Module):
 
 
 def train(loss_function, epochs, trainloader, validationloader, testloader):
+
+    checkpoint = Checkpoint()
     # get the input_size from trainloader
     in_size= trainloader.dataset[0][0].shape[0]
 
@@ -145,10 +147,16 @@ def train(loss_function, epochs, trainloader, validationloader, testloader):
 
         model.update(network, epochs = e+1, ba = balanced_accuracy, ra=regular_accuracy)
 
+        checkpoint.add(network.state_dict(),optimizer.state_dict())
+
+    m_dict = checkpoint.get(model.getOptEpoch())
+    network.load_state_dict(m_dict)
+
+    network.eval()
+
      # per epoch test activity
     for inputs, labels in testloader:
-
-
+        running_info = {'test_loss':0, 'test_size':0, 'TP':0, 'FP':0, 'TN':0, 'FN':0}
         inputs,labels = best_device(inputs, labels)
 
         # forward propagation
@@ -161,7 +169,9 @@ def train(loss_function, epochs, trainloader, validationloader, testloader):
 
         preds = (outs > 0.5).type(torch.FloatTensor)
         running_info['TP'],running_info['FP'],running_info['TN'],running_info['FN'] = e_confusion_matrix(preds,labels)
+        regular_accuracy,balanced_accuracy = e_accuracy(confusion_matrix)
     
+    model.override(ba = balanced_accuracy, ra=regular_accuracy)
     
     return model
 
@@ -232,8 +242,8 @@ def run(config):
 config ={
     "dataset":"mbti", #mbti, essays
     "feature":"bow+psycho", #bow, psycho, bow+psycho
-    "loss":"bce", #bce, wbces, wbceb, bbces, bbceb, cfbce, wfbceb
-    "epochs":200 #any
+    "loss":"cfbce", #bce, wbces, wbceb, bbces, bbceb, cfbce, wfbceb
+    "epochs":20 #any
 }
 
 print_results(run(config=config))
