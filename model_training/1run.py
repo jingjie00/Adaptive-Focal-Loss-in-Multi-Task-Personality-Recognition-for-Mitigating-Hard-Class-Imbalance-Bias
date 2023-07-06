@@ -140,7 +140,6 @@ def train(loss_function, epochs, trainloader, validationloader, testloader):
 
         confusion_matrix = running_info['TP'],running_info['FP'],running_info['TN'],running_info['FN']
         regular_accuracy,balanced_accuracy = e_accuracy(confusion_matrix)
-        
 
         print(f'[Epoch {e + 1:2d}/{epochs:d}]: train_loss = {train_loss:.4f}, validation_loss = {validation_loss:.4f}, RA = {regular_accuracy:.4f}, BA: {balanced_accuracy:.4f}, CM:{confusion_matrix}')
 
