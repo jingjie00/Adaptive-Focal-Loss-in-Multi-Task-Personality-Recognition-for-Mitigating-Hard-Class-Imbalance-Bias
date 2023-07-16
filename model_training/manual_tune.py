@@ -211,9 +211,9 @@ def run(config):
     return models
 
 config ={
-    "dataset":"mbti", #mbti, essays
-    "feature":"bow+psycho", #bow, psycho, bow+psycho
-    "loss":"bce", #bce, wbces, wbceb, bbces, bbceb, cfbce, wfbceb
+    "dataset":"essays", #mbti, essays
+    "feature":"bow", #bow, psycho, bow+psycho
+    "loss":"cfbce", #bce, wbces, wbceb, bbces, bbceb, cfbce, wfbceb
     "epochs":200 #any
 }
 
