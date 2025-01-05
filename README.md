@@ -32,33 +32,31 @@ Two datasets were utilized in the experiments:
 3. **Download the datasets**  
     You can download the datasets manually or use the Hugging Face library.
 
-    **Using Hugging Face Library**  
-    a. **Install the `datasets` library:**
-        ```bash
-        pip install datasets
-        ```
-    b. **Download the datasets:**
-        ```python
-        from datasets import load_dataset
+    - **Using Hugging Face Library**  
+        -  **Install the `datasets` library:**
+            ```bash
+            pip install datasets
+            ```
+        - **Download the datasets:**
+            ```python
+            from datasets import load_dataset
 
-        # Load MBTI Kaggle Dataset
-        mbti_kaggle = load_dataset('jingjietan/kaggle-mbti')
+            # Load MBTI Kaggle Dataset
+            mbti_kaggle = load_dataset('jingjietan/kaggle-mbti')
 
-        # Load Essays Big Five Dataset
-        essays_big5 = load_dataset('jingjietan/essays-big5')
+            # Load Essays Big Five Dataset
+            essays_big5 = load_dataset('jingjietan/essays-big5')
 
-        # Save datasets to the `dataset/` directory
-        mbti_kaggle.to_csv('dataset/mbti_kaggle.csv')
-        essays_big5.to_csv('dataset/essays_big5.csv')
-        ```
+            # Save datasets to the `dataset/` directory
+            mbti_kaggle.to_csv('dataset/mbti_kaggle.csv')
+            essays_big5.to_csv('dataset/essays_big5.csv')
+            ```
 
-    **Manual Download**  
-    a. **Download the datasets from the provided links:**
-        - [MBTI Kaggle Dataset](https://huggingface.co/datasets/jingjietan/kaggle-mbti)
-        - [Essays Big Five Dataset](https://huggingface.co/datasets/jingjietan/essays-big5)
-    b. **Place the downloaded files in the `dataset/` directory:**
-        - `dataset/mbti_kaggle.csv`
-        - `dataset/essays_big5.csv`
+    - **Download**
+        - The datasets used in this project include:
+            - [Essays Big5 Dataset](https://huggingface.co/datasets/jingjietan/essays-big5)
+            - [Kaggle MBTI Dataset](https://huggingface.co/datasets/jingjietan/kaggle-mbti)
+
 
 ## Usage
 
