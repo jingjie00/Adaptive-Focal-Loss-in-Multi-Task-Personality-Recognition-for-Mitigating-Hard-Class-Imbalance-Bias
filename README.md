@@ -1,16 +1,5 @@
-# README: Personality-Stratified with Adaptive Focal Loss for Hard Class
-Imbalance in Multi-Dimensional Personality Recognition
+# README: Personality-Stratified with Adaptive Focal Loss for Hard Class Imbalance in Multi-Dimensional Personality Recognition
 
-## Overview
-This project explores class imbalance issues in personality recognition tasks and introduces a novel **Adaptive Focal Loss** (AFL) designed for multi-task learning. The approach leverages advanced linguistic features and custom loss functions to improve classification performance on datasets with skewed personality type distributions.
-
-## Abstract Summary
-Personality recognition is pivotal for personalized responses and understanding user behavior. However, class imbalance in existing datasets hampers model performance. This study evaluates various **Class Imbalance Mitigation Techniques** (CIMTs), introduces the **Adaptive Focal Loss**, and recommends balanced evaluation metrics. Experiments were conducted using **Linguistic Inquiry and Word Count (LIWC)** and **Term Frequency-Inverse Document Frequency (TF-IDF)** features. Results highlight significant performance gains through trainable hyperparameters, mitigating the challenges of parameter selection and sensitivity.
-
-## Key Features
-- **Adaptive Focal Loss:** A novel loss function that adapts dynamically during training to handle class imbalance. Supports simultaneous personality recognition across multiple tasks.
-- **Advanced Feature Engineering:** Utilizes LIWC and TF-IDF features to capture linguistic nuances.
-- **Comprehensive Evaluation Metrics:** Balanced accuracy is recommended over regular accuracy and F1 score for imbalanced datasets.
 
 ## Dataset Details
 - The datasets used in this project include:
