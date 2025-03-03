@@ -56,9 +56,6 @@
     ```
 
 
-## Results
-- **Adaptive Focal Loss** significantly improved classification performance, particularly on underrepresented classes.
-- **Trainable Hyperparameters:** The dynamic adaptation of hyperparameters eliminates manual tuning and enhances generalization.
-- **Evaluation Recommendation:** Balanced accuracy provides a more reliable measure of performance in imbalanced datasets compared to traditional metrics.
+
 
 
