@@ -1,4 +1,5 @@
-# README: Adaptive Focal Loss in Multi-Task Personality Recognition for Mitigating Hard Class Imbalance Bias
+# README: Personality-Stratified with Adaptive Focal Loss for Hard Class
+Imbalance in Multi-Dimensional Personality Recognition
 
 ## Overview
 This project explores class imbalance issues in personality recognition tasks and introduces a novel **Adaptive Focal Loss** (AFL) designed for multi-task learning. The approach leverages advanced linguistic features and custom loss functions to improve classification performance on datasets with skewed personality type distributions.
